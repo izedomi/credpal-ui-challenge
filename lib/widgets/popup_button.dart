@@ -1,7 +1,6 @@
 import 'package:credpal_ui_challenge/animation/custom_rect_tween.dart';
 import 'package:credpal_ui_challenge/widgets/popup_card.dart';
 import 'package:credpal_ui_challenge/utils/colors.dart';
-import 'package:credpal_ui_challenge/utils/curves.dart';
 import 'package:flutter/material.dart';
 import '../animation/hero_dialog_route.dart';
 
@@ -20,53 +19,54 @@ class PopupButton extends StatelessWidget {
         tag: "popup-hero",
         createRectTween: (begin, end) {
           return CustomRectTween(begin: begin, end: end);
+          //return CustomMaterialRectCenterArcTween(begin!, end!);
         },
-        flightShuttleBuilder: (
-          BuildContext flightContext,
-          Animation<double> animation,
-          HeroFlightDirection flightDirection,
-          BuildContext fromHeroContext,
-          BuildContext toHeroContext,
-        ) {
-          //Hero toHero = toHeroContext.widget;
+        // flightShuttleBuilder: (
+        //   BuildContext flightContext,
+        //   Animation<double> animation,
+        //   HeroFlightDirection flightDirection,
+        //   BuildContext fromHeroContext,
+        //   BuildContext toHeroContext,
+        // ) {
+        //   //Hero toHero = toHeroContext.widget;
 
-          // return FadeTransition(
-          //   opacity: animation.drive(
-          //     Tween<double>(begin: 0.0, end: 1.0).chain(
-          //       CurveTween(
-          //         curve:
-          //             Interval(0.0, 1.0, curve: Curves.fastLinearToSlowEaseIn),
-          //         //curve: Interval(0.0, 1.0, curve: Curves.bounceIn),
-          //       ),
-          //     ),
-          //   ),
-          //   child: toHeroContext.widget,
-          // );
-          return FadeTransition(
-              opacity: animation.drive(
-                Tween<double>(begin: 0.0, end: 1.0).chain(
-                  CurveTween(
-                    curve: Interval(0.0, 1.0, curve: ValleyQuadraticCurve()),
-                  ),
-                ),
-              ),
-              child: flightDirection == HeroFlightDirection.push
-                  ? RotationTransition(
-                      turns: animation,
-                      child: toHeroContext.widget,
-                    )
-                  : ScaleTransition(
-                      scale: animation.drive(
-                        Tween<double>(begin: 0.0, end: 1.0).chain(
-                          CurveTween(
-                            curve:
-                                Interval(0.0, 1.0, curve: BackQuadraticCurve()),
-                          ),
-                        ),
-                      ),
-                      child: toHeroContext.widget,
-                    ));
-        },
+        //   // return FadeTransition(
+        //   //   opacity: animation.drive(
+        //   //     Tween<double>(begin: 0.0, end: 1.0).chain(
+        //   //       CurveTween(
+        //   //         curve:
+        //   //             Interval(0.0, 1.0, curve: Curves.fastLinearToSlowEaseIn),
+        //   //         //curve: Interval(0.0, 1.0, curve: Curves.bounceIn),
+        //   //       ),
+        //   //     ),
+        //   //   ),
+        //   //   child: toHeroContext.widget,
+        //   // );
+        //   return FadeTransition(
+        //       opacity: animation.drive(
+        //         Tween<double>(begin: 0.0, end: 1.0).chain(
+        //           CurveTween(
+        //             curve: Interval(0.0, 1.0, curve: ValleyQuadraticCurve()),
+        //           ),
+        //         ),
+        //       ),
+        //       child: flightDirection == HeroFlightDirection.push
+        //           ? RotationTransition(
+        //               turns: animation,
+        //               child: toHeroContext.widget,
+        //             )
+        //           : ScaleTransition(
+        //               scale: animation.drive(
+        //                 Tween<double>(begin: 0.0, end: 1.0).chain(
+        //                   CurveTween(
+        //                     curve:
+        //                         Interval(0.0, 1.0, curve: BackQuadraticCurve()),
+        //                   ),
+        //                 ),
+        //               ),
+        //               child: toHeroContext.widget,
+        //             ));
+        // },
         child: Material(
           color: orange, //.accentColor,
           elevation: 2,

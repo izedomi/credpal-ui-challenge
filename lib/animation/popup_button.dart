@@ -20,6 +20,7 @@ class PopupButton extends StatelessWidget {
         tag: "popup-hero",
         createRectTween: (begin, end) {
           return CustomRectTween(begin: begin, end: end);
+          //return CustomMaterialRectCenterArcTween(begin!, end!);
         },
         flightShuttleBuilder: (
           BuildContext flightContext,
@@ -28,44 +29,65 @@ class PopupButton extends StatelessWidget {
           BuildContext fromHeroContext,
           BuildContext toHeroContext,
         ) {
-          //Hero toHero = toHeroContext.widget;
-
-          // return FadeTransition(
-          //   opacity: animation.drive(
-          //     Tween<double>(begin: 0.0, end: 1.0).chain(
-          //       CurveTween(
-          //         curve:
-          //             Interval(0.0, 1.0, curve: Curves.fastLinearToSlowEaseIn),
-          //         //curve: Interval(0.0, 1.0, curve: Curves.bounceIn),
-          //       ),
-          //     ),
-          //   ),
-          //   child: toHeroContext.widget,
-          // );
-          return FadeTransition(
-              opacity: animation.drive(
-                Tween<double>(begin: 0.0, end: 1.0).chain(
-                  CurveTween(
-                    curve: Interval(0.0, 1.0, curve: ValleyQuadraticCurve()),
-                  ),
-                ),
+          return Container(
+            color: orange, //.accentColor,
+            // elevation: 2,
+            // shape:
+            //     RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            child: Container(
+              padding: EdgeInsets.all(6),
+              child: Icon(
+                Icons.add,
+                size: 20,
+                color: Colors.white,
               ),
-              child: flightDirection == HeroFlightDirection.push
-                  ? RotationTransition(
-                      turns: animation,
-                      child: toHeroContext.widget,
-                    )
-                  : ScaleTransition(
-                      scale: animation.drive(
-                        Tween<double>(begin: 0.0, end: 1.0).chain(
-                          CurveTween(
-                            curve:
-                                Interval(0.0, 1.0, curve: BackQuadraticCurve()),
-                          ),
-                        ),
-                      ),
-                      child: toHeroContext.widget,
-                    ));
+            ),
+          );
+          //   //Hero toHero = toHeroContext.widget;
+
+          //   // return FadeTransition(
+          //   //   opacity: animation.drive(
+          //   //     Tween<double>(begin: 0.0, end: 1.0).chain(
+          //   //       CurveTween(
+          //   //         curve:
+          //   //             Interval(0.0, 1.0, curve: Curves.fastLinearToSlowEaseIn),
+          //   //         //curve: Interval(0.0, 1.0, curve: Curves.bounceIn),
+          //   //       ),
+          //   //     ),
+          //   //   ),
+          //   //   child: toHeroContext.widget,
+          //   // );
+          //   return FadeTransition(
+          //       opacity: animation.drive(
+          //         Tween<double>(begin: 0.0, end: 1.0).chain(
+          //           CurveTween(
+          //             curve: Interval(0.0, 1.0, curve: ValleyQuadraticCurve()),
+          //           ),
+          //         ),
+          //       ),
+          //       child: flightDirection == HeroFlightDirection.push
+          //           ? RotationTransition(
+          //               turns: animation,
+          //               child: toHeroContext.widget,
+          //             )
+          //           : ScaleTransition(
+          //               scale: animation.drive(
+          //                 Tween<double>(begin: 0.0, end: 1.0).chain(
+          //                   CurveTween(
+          //                     curve:
+          //                         Interval(0.0, 1.0, curve: BackQuadraticCurve()),
+          //                   ),
+          //                 ),
+          //               ),
+          //               child: toHeroContext.widget,
+          //             ));
+        },
+        placeholderBuilder: (context, size, widget) {
+          return Container(
+            color: Colors.yellow,
+            height: 200,
+            width: 200,
+          );
         },
         child: Material(
           color: orange, //.accentColor,

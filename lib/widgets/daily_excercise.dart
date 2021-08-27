@@ -63,7 +63,7 @@ class DailyExcercise extends StatelessWidget {
                 dividerIsTriple! ? CustomDivider(cyanBlue) : Container()
               ],
             ),
-            SizedBox(height: 12),
+            SizedBox(height: 10),
             Text(
               title ?? '',
               style: TextStyle(
@@ -72,7 +72,7 @@ class DailyExcercise extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 12),
+            SizedBox(height: 10),
             TextSubTitle(subTitle ?? '')
           ],
         ),

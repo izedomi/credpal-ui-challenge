@@ -19,7 +19,7 @@ class HeroDialogRoute<T> extends PageRoute<T> {
   bool get barrierDismissible => false;
 
   @override
-  Duration get transitionDuration => const Duration(milliseconds: 1500);
+  Duration get transitionDuration => const Duration(milliseconds: 700);
 
   @override
   bool get maintainState => true;

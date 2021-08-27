@@ -21,7 +21,7 @@ class PopupCard extends StatelessWidget {
           color: Colors.white.withOpacity(0), //AppColors.accentColor,
           child: Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 1.9,
+            height: MediaQuery.of(context).size.height / 1.5,
             margin: EdgeInsets.only(left: 3, right: 3),
             child: ListView(
               children: [
@@ -33,16 +33,17 @@ class PopupCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                           boxShadow: [
                             new BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 8.0,
-                                spreadRadius: 2,
+                                color: Colors.white.withOpacity(.2),
+                                blurRadius: 6.0,
+                                spreadRadius: 1,
                                 offset: Offset(1, 1)),
                           ]),
                       margin: EdgeInsets.all(24),
                       child: LayoutBuilder(builder: (context, constraints) {
                         if (constraints.maxWidth >= 250) {
                           return Container(
-                            padding: EdgeInsets.all(24),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 36),
                             child: Column(
                               children: [
                                 Row(
